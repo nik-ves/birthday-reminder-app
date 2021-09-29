@@ -10,11 +10,17 @@ function App() {
     console.log("Cleared!");
   };
 
+  const listIsEmpty = people.length === 0;
+
   return (
     <main>
       <section className="container">
         <h3>{people.length} Birthdays Today!</h3>
-        <List />
+
+        <List people={people} />
+
+        {listIsEmpty && <p>No birthdays!</p>}
+
         <button onClick={listClearHandler}>Clear All</button>
       </section>
     </main>
