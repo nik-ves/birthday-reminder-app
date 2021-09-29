@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
-import data from './data';
-import List from './List';
+import React, { useState } from "react";
+import data from "./data";
+import List from "./List";
 
 function App() {
-  return <h2>Birthday reminder!</h2>;
+  const [people, setPeople] = useState(data);
+
+  const listClearHandler = () => {
+    setPeople([]);
+    console.log("Cleared!");
+  };
+
+  return (
+    <main>
+      <section className="container">
+        <h3>{people.length} Birthdays Today!</h3>
+        <List />
+        <button onClick={listClearHandler}>Clear All</button>
+      </section>
+    </main>
+  );
 }
 
 export default App;
